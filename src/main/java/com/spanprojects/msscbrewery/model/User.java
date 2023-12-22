@@ -1,71 +1,66 @@
 package com.spanprojects.msscbrewery.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "Users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "UserID")
+    private Long userID;
 
-    @Column(name = "username", unique = true, nullable = false, length = 50)
-    private String username;
+    @Column(name = "FirstName")
+    private String firstName;
 
-    @Column(name = "password_hash", nullable = false, length = 255)
-    private String passwordHash;
+    @Column(name = "LastName")
+    private String lastName;
 
-    @Column(name = "email", unique = true, nullable = false, length = 100)
+    @Column(name = "PhoneNumber")
+    private String phoneNumber;
+
+    @Column(name = "Email")
     private String email;
 
-    @Column(name = "full_name", nullable = false, length = 100)
-    private String fullName;
+    @Column(name = "Password")
+    private String password;
 
-    // Constructors
+    @Column(name = "Role")
+    private String role;
 
-    // Default constructor (required by JPA)
-    public User() {
+    // Constructors, getters, and setters
+
+    public Long getUserID() {
+        return userID;
     }
 
-    // Parameterized constructor
-    public User(String username, String passwordHash, String email, String fullName) {
-        this.username = username;
-        this.passwordHash = passwordHash;
-        this.email = email;
-        this.fullName = fullName;
+    public void setUserID(Long userID) {
+        this.userID = userID;
     }
 
-    // Getters and Setters
-
-    public Long getUserId() {
-        return userId;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -76,13 +71,19 @@ public class User {
         this.email = email;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getPassword() {
+        return password;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    // You may include other methods as needed
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }
